@@ -1,8 +1,8 @@
-*
+/*
 
-!.gitignore
+!/.gitignore
 
-!.config
-.config/*
-!.config/nvim
+!/.config
+/.config/*
+!/.config/nvim
 
