@@ -1,4 +1,3 @@
--- LSP Keybindings
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
 vim.keymap.set('n', 'gr', vim.lsp.buf.rename, {})
@@ -16,10 +15,7 @@ lspconfig.eslint.setup({
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 local lspconfig = require('lspconfig')
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = { 'clangd', 'pyright' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -39,34 +35,40 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
+
   mapping = cmp.mapping.preset.insert({
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {
+    ['<A-y>'] = cmp.mapping.complete(),
+    ['<A-j>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
+
+    -- ['<Tab>'] = cmp.mapping(function(fallback)
+    --   if cmp.visible() then
+    --     cmp.select_next_item()
+    --   elseif luasnip.expand_or_jumpable() then
+    --     luasnip.expand_or_jump()
+    --   else
+    --     fallback()
+    --   end
+    -- end, { 'i', 's' }),
+    -- ['<S-Tab>'] = cmp.mapping(function(fallback)
+    --   if cmp.visible() then
+    --     cmp.select_prev_item()
+    --   elseif luasnip.jumpable(-1) then
+    --     luasnip.jump(-1)
+    --   else
+    --     fallback()
+    --   end
+    -- end, { 'i', 's' }),
   }),
+
   sources = {
+    { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
-    { name = 'luasnip' },
+    { name = 'path' },
+    { name = 'luasnip', max_item_count = 10 },
+    { name = 'buffer', keyword_length = 5 },
   },
 }
 

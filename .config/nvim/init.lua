@@ -6,4 +6,5 @@ require("stone-carver")
 require("lsp")
 require("theme")
 require("tele")
+require("comment")
 
