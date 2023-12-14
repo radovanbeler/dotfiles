@@ -1,5 +1,9 @@
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
+vim.keymap.set('n', 'gdd', vim.lsp.buf.definition, {})
+vim.keymap.set('n', 'gdD', vim.lsp.buf.declaration, {})
+vim.keymap.set('n', 'gda', vim.lsp.buf.code_action, {})
+vim.keymap.set('n', 'gdh', vim.lsp.buf.hover, {})
+vim.keymap.set('n', 'gdn', vim.diagnostic.goto_next, {})
+vim.keymap.set('n', 'gdp', vim.diagnostic.goto_prev, {})
 vim.keymap.set('n', 'gr', vim.lsp.buf.rename, {})
 
 local lspconfig = require('lspconfig')

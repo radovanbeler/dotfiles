@@ -54,5 +54,8 @@ require("lazy").setup({
         "numToStr/Comment.nvim",
         lazy = false,
     },
+    {
+        "tpope/vim-fugitive"
+    },
 })
 
