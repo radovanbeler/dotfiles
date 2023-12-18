@@ -7,4 +7,5 @@ require("lsp")
 require("theme")
 require("tele")
 require("comment")
+require("harpoona")
 
