@@ -10,3 +10,5 @@
 /.bashrc.d/*
 !/.bashrc.d/custom.bashrc
 
+!/.tmux.conf
+
