@@ -6,3 +6,7 @@
 /.config/*
 !/.config/nvim
 
+!/.bashrc.d
+/.bashrc.d/*
+!/.bashrc.d/custom.bashrc
+
