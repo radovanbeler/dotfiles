@@ -1,3 +1,15 @@
+require('telescope').setup()
+require('telescope').load_extension('fzf')
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', function()
+    builtin.find_files({ no_ignore = true })
+end, {})
+vim.keymap.set('n', '<leader>f/', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>fc', builtin.git_commits, {})
+vim.keymap.set('n', '<leader>fb', builtin.git_branches, {})
+
 local harpoon = require("harpoon")
 
 harpoon:setup()
