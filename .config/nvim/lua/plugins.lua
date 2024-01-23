@@ -68,5 +68,9 @@ require("lazy").setup({
     {
         "mbbill/undotree"
     },
+    {
+      'stevearc/conform.nvim',
+      opts = {},
+    },
 })
 
