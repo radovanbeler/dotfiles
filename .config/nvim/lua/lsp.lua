@@ -7,14 +7,14 @@ vim.keymap.set('n', 'gdp', vim.diagnostic.goto_prev, {})
 vim.keymap.set('n', 'gr', vim.lsp.buf.rename, {})
 
 local lspconfig = require('lspconfig')
-lspconfig.pyright.setup({})
-lspconfig.eslint.setup({
-  on_attach = function(client, bufnr)
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
+    lspconfig.pyright.setup({})
+    lspconfig.eslint.setup({
+        on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
     })
-  end,
+    end,
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
