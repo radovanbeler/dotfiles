@@ -5,7 +5,7 @@ lspconfig.pyright.setup({})
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(args)
-		local opts = { buffer = args.buf }
+		local opts = { buffer = args.buf, remap = false }
 		vim.keymap.set("n", "gr", vim.lsp.buf.rename, opts)
 		vim.keymap.set("n", "gdd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "gdD", vim.lsp.buf.declaration, opts)
@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { "clangd", "pyright" }
+local servers = { "pyright" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,
