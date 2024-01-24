@@ -58,3 +58,17 @@ require("Comment").setup({
 	pre_hook = nil,
 	post_hook = nil,
 })
+
+require("lualine").setup({
+	options = {
+		icons_enabled = false,
+	},
+	sections = {
+		lualine_a = { "branch" },
+		lualine_b = { "filename" },
+		lualine_c = {},
+		lualine_x = { "encoding" },
+		lualine_y = { "progress" },
+		lualine_z = { "location" },
+	},
+})
