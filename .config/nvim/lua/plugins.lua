@@ -68,6 +68,9 @@ require("lazy").setup({
 		"tpope/vim-fugitive",
 	},
 	{
+		"tpope/vim-surround",
+	},
+	{
 		"lervag/vimtex",
 	},
 	{
