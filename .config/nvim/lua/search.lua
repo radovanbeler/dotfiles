@@ -9,6 +9,8 @@ vim.keymap.set("n", "<leader>f/", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fc", builtin.git_commits, {})
 vim.keymap.set("n", "<leader>fb", builtin.git_branches, {})
+vim.keymap.set("n", "<leader>fk", builtin.keymaps, {})
+vim.keymap.set("n", "<leader>fs", builtin.lsp_dynamic_workspace_symbols, {})
 
 local harpoon = require("harpoon")
 

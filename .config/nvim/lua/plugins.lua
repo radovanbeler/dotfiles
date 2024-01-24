@@ -28,6 +28,9 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
 	{
+		"nvim-treesitter/nvim-treesitter-refactor",
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
 		dependencies = {

@@ -20,9 +20,6 @@ require("nvim-treesitter.configs").setup({
 			node_decremental = "grm",
 		},
 	},
-})
-
-require("nvim-treesitter.configs").setup({
 	textobjects = {
 		select = {
 			enable = true,
@@ -41,6 +38,24 @@ require("nvim-treesitter.configs").setup({
 				["@class.outer"] = "V",
 			},
 			include_surrounding_whitespace = false,
+		},
+		swap = {
+			enable = true,
+			swap_next = {
+				["gpn"] = "@parameter.inner",
+				["gmn"] = "@function.outer",
+			},
+			swap_previous = {
+				["gpp"] = "@parameter.inner",
+				["gmp"] = "@function.outer",
+			},
+		},
+	},
+	refactor = {
+		highlight_definitions = {
+			enable = true,
+			-- Set to false if you have an `updatetime` of ~100.
+			clear_on_cursor_move = false,
 		},
 	},
 })
