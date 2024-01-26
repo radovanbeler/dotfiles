@@ -15,8 +15,27 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.wrap = false
 
+vim.opt.spelllang = "en"
+vim.opt.spell = false
+
 vim.g.mapleader = " "
 
+local toggle_spellcheck = function()
+	if vim.opt.spell:get() then
+		vim.opt.spell = false
+	else
+		vim.opt.spell = true
+	end
+end
+
+-- Spell options
+vim.keymap.set("n", "<Leader>so", toggle_spellcheck)
+vim.keymap.set("n", "<Leader>ss", function()
+	vim.opt.spelllang = "sk"
+end)
+vim.keymap.set("n", "<Leader>se", function()
+	vim.opt.spelllang = "en_us"
+end)
 -- Open Netrw
 vim.keymap.set("n", "<Leader>pf", vim.cmd.Ex)
 -- Paste over text in visual mode without losing content in register

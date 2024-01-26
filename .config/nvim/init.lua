@@ -3,4 +3,3 @@ require("syntax")
 require("edit")
 require("lsp")
 require("search")
-
