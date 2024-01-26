@@ -7,6 +7,12 @@ require("rose-pine").setup({
 })
 vim.cmd("colorscheme rose-pine")
 
+local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+
+-- Repeat movement with ; and ,
+vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
+vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+
 require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },
 	indent = { enable = true },
@@ -55,6 +61,29 @@ require("nvim-treesitter.configs").setup({
 		highlight_definitions = {
 			enable = true,
 			clear_on_cursor_move = false,
+		},
+	},
+	textobjects = {
+		move = {
+			enable = true,
+			set_jumps = true,
+			goto_next_start = {
+				["]m"] = "@function.outer",
+				["]c"] = "@class.outer",
+			},
+			goto_next_end = {
+				["]M"] = "@function.outer",
+			},
+			goto_previous_start = {
+				["[m"] = "@function.outer",
+				["]C"] = "@class.outer",
+			},
+			goto_previous_end = {
+				["[M"] = "@function.outer",
+			},
+			-- Below will go to either the start or the end, whichever is closer.
+			goto_next = {},
+			goto_previous = {},
 		},
 	},
 })
