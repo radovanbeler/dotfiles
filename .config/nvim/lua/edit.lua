@@ -52,6 +52,8 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
+-- Execute current file as Python script
+vim.keymap.set("n", "<leader>ep", ":!python %<CR>")
 
 require("Comment").setup({
 	padding = true,
