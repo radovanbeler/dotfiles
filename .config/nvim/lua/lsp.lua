@@ -1,7 +1,5 @@
 local lspconfig = require("lspconfig")
 
-lspconfig.pyright.setup({})
-
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(args)
@@ -16,6 +14,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gdp", vim.diagnostic.goto_prev, opts)
 	end,
 })
+
+lspconfig.pyright.setup({})
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local servers = { "pyright" }
@@ -33,18 +33,18 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end,
 	},
-
 	mapping = cmp.mapping.preset.insert({
-		["<A-y>"] = cmp.mapping.complete(),
+		["<C-Space>"] = cmp.mapping.complete(),
 		["<A-j>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
 		}),
+		["<A-J>"] = cmp.mapping.select_next_item(),
+		["<A-K>"] = cmp.mapping.select_prev_item(),
 	}),
-
 	sources = {
 		{ name = "nvim_lua" },
-		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp", max_item_count = 10 },
 		{ name = "path" },
 		{ name = "luasnip", max_item_count = 10 },
 		{ name = "buffer", keyword_length = 5 },
