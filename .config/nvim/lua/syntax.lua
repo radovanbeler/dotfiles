@@ -94,7 +94,7 @@ require("nvim-treesitter.configs").setup({
 
 require("conform").setup({
 	formatters_by_ft = {
-		python = { "ruff_format" },
+		python = { "isort", "ruff_format" },
 		lua = { "stylua" },
 	},
 	format_on_save = {
