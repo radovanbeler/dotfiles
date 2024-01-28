@@ -1,18 +1,6 @@
-local toggle_spellcheck = function()
-	if vim.opt.spell:get() then
-		vim.opt.spell = false
-	else
-		vim.opt.spell = true
-	end
-end
-
--- Spell options
-vim.keymap.set("n", "<Leader>so", toggle_spellcheck)
+-- Toggle spellcheck
 vim.keymap.set("n", "<Leader>ss", function()
-	vim.opt.spelllang = "sk"
-end)
-vim.keymap.set("n", "<Leader>se", function()
-	vim.opt.spelllang = "en_us"
+	vim.opt.spell = not vim.opt.spell:get()
 end)
 -- Open Netrw
 vim.keymap.set("n", "<Leader>pf", vim.cmd.Ex)
@@ -32,5 +20,4 @@ vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Execute current file as Python script
 vim.keymap.set("n", "<leader>ep", ":!python %<CR>")
-
 vim.keymap.set("n", "<leader>td", ":TodoTelescope<CR>")
