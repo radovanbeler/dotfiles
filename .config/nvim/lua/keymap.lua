@@ -1,25 +1,3 @@
-vim.o.termguicolors = true
-
-vim.opt.swapfile = false
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.scrolloff = 8
-vim.opt.colorcolumn = "80"
-vim.opt.updatetime = 50
-
-vim.opt.number = true
-vim.opt.relativenumber = true
-
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.wrap = false
-
-vim.opt.spelllang = "en"
-vim.opt.spell = false
-
-vim.g.mapleader = " "
-
 local toggle_spellcheck = function()
 	if vim.opt.spell:get() then
 		vim.opt.spell = false
@@ -56,42 +34,3 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 vim.keymap.set("n", "<leader>ep", ":!python %<CR>")
 
 vim.keymap.set("n", "<leader>td", ":TodoTelescope<CR>")
-
-require("Comment").setup({
-	padding = true,
-	sticky = true,
-	ignore = nil,
-	opleader = {
-		line = "gc",
-		block = "gb",
-	},
-	toggler = {
-		line = "gcc",
-		block = "gbc",
-	},
-	extra = {
-		above = "gcO",
-		below = "gco",
-		eol = "gcA",
-	},
-	mappings = {
-		basic = true,
-		extra = true,
-	},
-	pre_hook = nil,
-	post_hook = nil,
-})
-
-require("lualine").setup({
-	options = {
-		icons_enabled = false,
-	},
-	sections = {
-		lualine_a = { "branch" },
-		lualine_b = { "filename" },
-		lualine_c = {},
-		lualine_x = { "encoding" },
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
-	},
-})

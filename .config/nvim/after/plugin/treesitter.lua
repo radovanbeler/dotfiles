@@ -1,12 +1,3 @@
-require("rose-pine").setup({
-	styles = {
-		bold = false,
-		italic = false,
-		transparency = false,
-	},
-})
-vim.cmd("colorscheme rose-pine")
-
 local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
 -- Repeat movement with ; and ,
@@ -89,16 +80,5 @@ require("nvim-treesitter.configs").setup({
 			goto_next = {},
 			goto_previous = {},
 		},
-	},
-})
-
-require("conform").setup({
-	formatters_by_ft = {
-		python = { "isort", "ruff_format" },
-		lua = { "stylua" },
-	},
-	format_on_save = {
-		timeout_ms = 500,
-		lsp_fallback = false,
 	},
 })

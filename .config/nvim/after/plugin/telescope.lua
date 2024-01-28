@@ -11,19 +11,3 @@ vim.keymap.set("n", "<leader>fc", builtin.git_commits, {})
 vim.keymap.set("n", "<leader>fb", builtin.git_branches, {})
 vim.keymap.set("n", "<leader>fk", builtin.keymaps, {})
 vim.keymap.set("n", "<leader>fs", builtin.lsp_dynamic_workspace_symbols, {})
-
-local harpoon = require("harpoon")
-
-harpoon:setup()
-
-vim.keymap.set("n", "<leader>a", function()
-	harpoon:list():append()
-end)
-vim.keymap.set("n", "<leader>h", function()
-	harpoon.ui:toggle_quick_menu(harpoon:list())
-end)
-
--- vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
--- vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
--- vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
--- vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)

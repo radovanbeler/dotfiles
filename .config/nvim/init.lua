@@ -1,6 +1,3 @@
--- TODO
 require("plugins")
-require("syntax")
-require("edit")
-require("lsp")
-require("search")
+require("set")
+require("keymap")
