@@ -1,3 +1,4 @@
+-- TODO
 require("plugins")
 require("syntax")
 require("edit")

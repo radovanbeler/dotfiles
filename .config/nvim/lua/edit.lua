@@ -55,6 +55,8 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Execute current file as Python script
 vim.keymap.set("n", "<leader>ep", ":!python %<CR>")
 
+vim.keymap.set("n", "<leader>td", ":TodoTelescope<CR>")
+
 require("Comment").setup({
 	padding = true,
 	sticky = true,

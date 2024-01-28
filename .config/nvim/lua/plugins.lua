@@ -89,4 +89,19 @@ require("lazy").setup({
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			signs = false,
+		},
+	},
+	{
+		"folke/zen-mode.nvim",
+		opts = {
+			window = {
+				width = 0.75,
+			},
+		},
+	},
 })
