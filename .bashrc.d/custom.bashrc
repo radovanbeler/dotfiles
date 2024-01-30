@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export EDITOR=nvim
+
 # Aliases
 alias la='ls -la --color=auto'
 
