@@ -1,0 +1,11 @@
+[Unit]
+Description=Backup personal files every 15 minutes
+
+[Timer]
+OnStartupSec=5min
+OnUnitActiveSec=15min
+WakeSystem=false
+
+[Install]
+WantedBy=timers.target
+

@@ -1,0 +1,7 @@
+[Unit]
+Description=Backup personal files
+
+[Service]
+ExecStart=/usr/bin/rclone sync /home/radovan/files files:files
+Type=oneshot
+
