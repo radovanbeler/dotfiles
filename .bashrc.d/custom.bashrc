@@ -19,3 +19,8 @@ set -o vi
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
+# Launch Tmux in default session on shell startup 
+if [[ "$TERM" != 'tmux-256color' ]]; then
+    tmux attach -t 'personal' || tmux new -s 'personal'
+fi
+
