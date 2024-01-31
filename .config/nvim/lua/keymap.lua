@@ -1,5 +1,5 @@
 -- Toggle spellcheck
-vim.keymap.set("n", "<Leader>ss", function()
+vim.keymap.set("n", "<Leader>sc", function()
 	vim.opt.spell = not vim.opt.spell:get()
 end)
 -- Open Netrw
@@ -21,3 +21,5 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Execute current file as Python script
 vim.keymap.set("n", "<leader>ep", ":!python %<CR>")
 vim.keymap.set("n", "<leader>td", ":TodoTelescope<CR>")
+-- Open session script
+vim.keymap.set("n", "<leader>ss", ":!session<CR><CR>")
