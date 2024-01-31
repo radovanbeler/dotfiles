@@ -11,8 +11,7 @@ path="$projects/$name"
 
 if ! tmux has-session -t "$name" 2> /dev/null; then
     tmux new -s "$name" -n 'editor' -c "$path" -d
-    tmux neww -t "$name" -n 'shell'
-    tmux selectw -t "$name:1"
+    tmux neww -t "$name" -n 'shell' -d
     tmux send -t "$name" 'nvim' 'C-m'
 fi
 
