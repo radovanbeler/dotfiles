@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+tmux new-session -s dev -n editor -d
+# C-m sends carriage return
+tmux send-keys -t dev 'cd ~/projects/devproject/' C-m 
+tmux send-keys -t dev 'nvim' C-m 
+# -p 10 means bottom 10%
+tmux split-window -v -p 10 -t dev
+tmux select-layout -t dev main-horizontal
+tmux send-keys -t dev:1:2 'cd ~/projects/devproject' C-m
+tmux new-window -n console -t dev
+tmux send-keys -t dev:2 'cd ~/projects/devproject' C-m
+tmux select-window -t dev:1
+tmux attach -t dev

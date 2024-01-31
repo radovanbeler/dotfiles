@@ -7,12 +7,12 @@ alias la='ls -la --color=auto'
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d "$PYENV_ROOT/bin" ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # Python debugger
-export PYTHONBREAKPOINT="pudb.set_trace"
+export PYTHONBREAKPOINT='pudb.set_trace'
 
 # Vi mode
 set -o vi
@@ -21,6 +21,10 @@ bind -m vi-insert 'Control-l: clear-screen'
 
 # Launch Tmux in default session on shell startup 
 if [[ "$TERM" != 'tmux-256color' ]]; then
-    tmux attach -t 'personal' || tmux new -s 'personal'
+    if ! tmux has-session -t 'nvim'; then
+        tmux new -s 'nvim' -n 'editor' -d
+        tmux send-keys -t 'nvim' "cd ~/.config/nvim" C-m
+        tmux send-keys -t 'nvim' "nvim" C-m
+    fi
+    tmux attach -t 'personal' || tmux new -s 'personal' -n 'shell'
 fi
-
