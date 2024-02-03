@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 
-projects="$HOME/projects/"
-if [[ ! -d "$projects" ]]; then
-    echo 'projects not present in $HOME dir' 
-    exit 1
+dirs=( "$HOME" "$HOME/projects/" "$HOME/.config/" )
+for dir in "${dirs[@]}"; do
+    if [[ ! -d "$dir" ]]; then
+        echo "$dir doesn't exist"
+        exit 1
+    fi
+done
+
+path="$( find ${dirs[@]} -maxdepth 1 -type d -not -name ".*" | fzf-tmux )"
+if [[ -z "$path" ]]; then
+    exit 0
 fi
+name="$( basename "$path" )"
 
-name="$( ls "$projects" | fzf-tmux )"
-path="$projects/$name"
-
-if ! tmux has-session -t "$name" 2> /dev/null; then
+if ! tmux has-session -t "$name" 2>/dev/null; then
     tmux new -s "$name" -n 'editor' -c "$path" -d
     tmux neww -t "$name" -n 'shell' -d
     tmux send -t "$name" 'nvim' 'C-m'

@@ -21,10 +21,5 @@ bind -m vi-insert 'Control-l: clear-screen'
 
 # Launch Tmux in default session on shell startup 
 if [[ "$TERM" != 'tmux-256color' ]]; then
-    if ! tmux has-session -t 'nvim'; then
-        tmux new -s 'nvim' -n 'editor' -d
-        tmux send-keys -t 'nvim' "cd ~/.config/nvim" C-m
-        tmux send-keys -t 'nvim' "nvim" C-m
-    fi
     tmux attach -t 'personal' || tmux new -s 'personal' -n 'shell'
 fi
