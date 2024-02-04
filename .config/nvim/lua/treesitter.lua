@@ -51,14 +51,6 @@ require("nvim-treesitter.configs").setup({
 				["gmp"] = "@function.outer",
 			},
 		},
-	},
-	refactor = {
-		highlight_definitions = {
-			enable = true,
-			clear_on_cursor_move = false,
-		},
-	},
-	textobjects = {
 		move = {
 			enable = true,
 			set_jumps = true,
@@ -79,6 +71,12 @@ require("nvim-treesitter.configs").setup({
 			-- Below will go to either the start or the end, whichever is closer.
 			goto_next = {},
 			goto_previous = {},
+		},
+	},
+	refactor = {
+		highlight_definitions = {
+			enable = true,
+			clear_on_cursor_move = false,
 		},
 	},
 })
