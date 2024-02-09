@@ -2,6 +2,8 @@
 
 export EDITOR=nvim
 
+export CDPATH=".:~/files/:~/files/vysoka_skola/s6"
+
 # Aliases
 alias la='ls -la --color=auto'
 

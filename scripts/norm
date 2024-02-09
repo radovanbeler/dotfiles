@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+if (( $# != 1 )); then
+    echo 'Usage: '
+    exit 1
+fi
+
+full="$( realpath "$1" )"
+path="$( dirname "$full" )"
+filename="$( basename "$full" )"
+# echo "$full, $path, $filename"
+
+new="$( \
+    echo "$filename" | \
+    iconv -f UTF-8 -t ASCII//TRANSLIT | \
+    sed -E -e 's/.*/\L&/' -e 's/[[:space:]]+/_/g'
+)"
+
+if [[ -f "$path/$new" ]]; then
+    echo 'File already exists'
+    exit 1
+fi
+
+cp "$full" "$path/$new"
+
+echo "$new"
