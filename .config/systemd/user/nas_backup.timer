@@ -1,0 +1,10 @@
+[Unit]
+Description=Backup personal files to NAS every dat at 18:00
+
+[Timer]
+OnCalendar=*-*-* 18:00:00
+Persistent=true
+WakeSystem=false
+
+[Install]
+WantedBy=timers.target
