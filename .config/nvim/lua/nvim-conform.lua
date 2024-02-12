@@ -2,6 +2,7 @@ require("conform").setup({
 	formatters_by_ft = {
 		python = { "isort", "ruff_format" },
 		lua = { "stylua" },
+		yaml = { "yamlfmt" },
 	},
 
 	format_on_save = {
