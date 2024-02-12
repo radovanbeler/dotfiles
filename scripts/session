@@ -16,7 +16,7 @@ name="$( basename "$path" )"
 
 if ! tmux has-session -t "$name" 2>/dev/null; then
     tmux new -s "$name" -n 'editor' -c "$path" -d
-    tmux neww -t "$name" -n 'shell' -d
+    tmux neww -t "$name" -n 'shell' -c "$path" -d
     tmux send -t "$name" 'nvim' 'C-m'
 fi
 
