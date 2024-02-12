@@ -6,6 +6,7 @@ export CDPATH=".:~/files/:~/files/vysoka_skola/s6"
 
 # Aliases
 alias la='ls -la --color=auto'
+alias xo='xdg-open'
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
