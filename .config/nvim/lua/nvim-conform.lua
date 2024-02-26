@@ -4,6 +4,7 @@ require("conform").setup({
 		c = { "clang_format" },
 		lua = { "stylua" },
 		yaml = { "yamlfmt" },
+		html = { "prettier" },
 	},
 	formatters = {
 		clang_format = {
