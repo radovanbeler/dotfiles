@@ -15,11 +15,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-lspconfig.pyright.setup({})
-lspconfig.clangd.setup({})
-
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { "pyright", "clangd" }
+local servers = { "pyright", "clangd", "html" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,

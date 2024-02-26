@@ -1,5 +1,7 @@
 local luasnip = require("luasnip")
+require("luasnip.loaders.from_vscode").lazy_load()
 local cmp = require("cmp")
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
