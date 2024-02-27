@@ -93,4 +93,7 @@ require("lazy").setup({
 			signs = false,
 		},
 	},
+	{
+		"olrtg/nvim-emmet",
+	},
 })
