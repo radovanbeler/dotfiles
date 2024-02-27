@@ -1,7 +1,5 @@
 require("mason").setup({})
-require("mason-lspconfig").setup({
-	ensure_installed = { "pyright", "clangd", "html", "eslint", "tsserver", "cssls" },
-})
+require("mason-lspconfig").setup({})
 
 local lspconfig = require("lspconfig")
 
@@ -21,7 +19,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { "pyright", "clangd", "html", "eslint", "tsserver", "cssls" }
+local servers = { "pyright", "clangd", "html", "cssls", "emmet_language_server", "eslint", "tsserver" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,
