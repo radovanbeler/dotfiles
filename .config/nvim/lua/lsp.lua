@@ -1,3 +1,8 @@
+require("mason").setup({})
+require("mason-lspconfig").setup({
+	ensure_installed = { "pyright", "clangd", "html", "eslint", "tsserver", "cssls" },
+})
+
 local lspconfig = require("lspconfig")
 
 vim.api.nvim_create_autocmd("LspAttach", {
