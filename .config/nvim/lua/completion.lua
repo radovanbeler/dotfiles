@@ -5,6 +5,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
+		["<A-y>"] = cmp.mapping.complete(),
 		["<A-j>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Insert,
 			select = true,
