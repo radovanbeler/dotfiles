@@ -28,10 +28,6 @@ lspconfig.clangd.setup({
 local servers = { "pyright", "html", "cssls", "emmet_language_server", "eslint", "tsserver" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
-		on_attach = on_attch,
 		capabilities = capabilities,
 	})
 end
-
-local emmet = require("nvim-emmet")
-vim.keymap.set({ "n", "v" }, "<leader>xe", emmet.wrap_with_abbreviation)
