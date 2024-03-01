@@ -19,9 +19,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local servers = { "pyright", "clangd", "html", "cssls", "emmet_language_server", "eslint", "tsserver" }
+
+lspconfig.clangd.setup({
+	filetypes = { "c" },
+	capabilities = capabilities,
+})
+
+local servers = { "pyright", "html", "cssls", "emmet_language_server", "eslint", "tsserver" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
+		on_attach = on_attch,
 		capabilities = capabilities,
 	})
 end
