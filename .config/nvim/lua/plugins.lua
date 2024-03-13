@@ -40,6 +40,13 @@ require("lazy").setup({
 		build = "make",
 	},
 	{
+		"nvim-telescope/telescope-file-browser.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+	},
+	{
 		"williamboman/mason.nvim",
 		dependencies = { "williamboman/mason-lspconfig.nvim" },
 	},

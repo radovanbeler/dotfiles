@@ -27,3 +27,12 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 vim.keymap.set("n", "<leader>ep", ":!python %<CR>")
 vim.keymap.set("n", "<leader>td", ":TodoTelescope<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
+
+function print_lines()
+	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+	local file = assert(io.open("sinep", "w"))
+	file:write(table.concat(lines, "\n"))
+	file:close()
+end
+
+vim.keymap.set("n", "<leader>ec", print_lines)
