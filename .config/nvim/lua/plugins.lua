@@ -103,4 +103,7 @@ require("lazy").setup({
 	{
 		"olrtg/nvim-emmet",
 	},
+	{
+		"tpope/vim-abolish",
+	},
 })
