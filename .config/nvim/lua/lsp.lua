@@ -25,7 +25,7 @@ lspconfig.clangd.setup({
 	capabilities = capabilities,
 })
 
-local servers = { "pyright", "html", "cssls", "emmet_language_server", "eslint", "tsserver" }
+local servers = { "pyright", "html", "cssls", "emmet_language_server", "eslint", "tsserver", "texlab" }
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		capabilities = capabilities,

@@ -106,4 +106,8 @@ require("lazy").setup({
 	{
 		"tpope/vim-abolish",
 	},
+	{
+		"lervag/vimtex",
+		init = function() end,
+	},
 })
