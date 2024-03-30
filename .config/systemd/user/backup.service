@@ -1,7 +1,7 @@
 [Unit]
-Description=Backup personal files
+Description=Backup personal files to encrypted Google Drive
 
 [Service]
-ExecStart=/usr/bin/rclone sync /home/radovan/files gdrive_backup_crypt: --fast-list
+ExecStart=/usr/bin/rclone bisync /home/radovan/files gdrive_backup_crypt: --check-access --drive-skip-gdocs --fast-list --min-age 10m
 Type=oneshot
 

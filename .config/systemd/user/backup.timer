@@ -1,5 +1,5 @@
 [Unit]
-Description=Backup personal files every 15 minutes
+Description=Start backup.service every 15 minutes
 
 [Timer]
 OnStartupSec=5min

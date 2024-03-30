@@ -6,6 +6,13 @@
 /.config/*
 !/.config/nvim
 !/.config/systemd
+/.config/systemd/*
+!/.config/systemd/user
+/.config/systemd/user/*
+!/.config/systemd/user/backup.service
+!/.config/systemd/user/backup.timer
+!/.config/systemd/user/nas_backup.service
+!/.config/systemd/user/nas_backup.timer
 
 !/.bashrc.d
 /.bashrc.d/*
