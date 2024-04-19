@@ -24,17 +24,9 @@ vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 
-vim.keymap.set("n", "<leader>ep", ":!python %<CR>")
-vim.keymap.set("n", "<leader>td", ":TodoTelescope<CR>")
-vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
-
+-- Misc keymaps
 vim.keymap.set("n", "<leader>w", "<C-w>")
-
-function print_lines()
-	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-	local file = assert(io.open("sinep", "w"))
-	file:write(table.concat(lines, "\n"))
-	file:close()
-end
-
-vim.keymap.set("n", "<leader>ec", print_lines)
+vim.keymap.set("n", "<leader>ep", ":!python %<CR>")
+vim.keymap.set("n", "<leader>ft", "<CMD>TodoTelescope<CR>")
+vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
+vim.keymap.set("n", "<leader>rr", "<CMD>Rest run<cr>")
