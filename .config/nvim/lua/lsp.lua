@@ -1,5 +1,7 @@
 require("mason").setup({})
-require("mason-lspconfig").setup({})
+require("mason-lspconfig").setup({
+	ensure_installed = { "clangd", "pyright", "html", "emmet_language_server" },
+})
 
 local lspconfig = require("lspconfig")
 
