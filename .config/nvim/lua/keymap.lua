@@ -30,3 +30,15 @@ vim.keymap.set("n", "<leader>ep", ":!python %<CR>")
 vim.keymap.set("n", "<leader>ft", "<CMD>TodoTelescope<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
 vim.keymap.set("n", "<leader>rr", "<CMD>Rest run<cr>")
+
+-- Open header file with same filename as the current buffer
+vim.keymap.set("n", "<leader>oh", function()
+	local filename = vim.fn.expand("%")
+	if filename == "" or string.find(filename, "%.cpp") == nil then
+		return
+	end
+	local header = string.gsub(filename, "%.cpp", ".h")
+	vim.cmd(":botright vsplit " .. header)
+end)
+
+-- gdbus call --session --dest org.gnome.Shell --object-path /me/madhead/Shyriiwook --method me.madhead.Shyriiwook.activate "sk+qwerty"
