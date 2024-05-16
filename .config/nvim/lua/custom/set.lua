@@ -8,6 +8,9 @@ vim.opt.colorcolumn = "80"
 vim.opt.updatetime = 50
 vim.opt.mouse = ""
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
