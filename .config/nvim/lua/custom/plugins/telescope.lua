@@ -22,7 +22,6 @@ return {
             vim.keymap.set("n", "<leader>fb", builtin.git_branches, {})
             vim.keymap.set("n", "<leader>fk", builtin.keymaps, {})
             vim.keymap.set("n", "<leader>fs", builtin.lsp_dynamic_workspace_symbols, {})
-            vim.keymap.set("n", "<space>fe", "<CMD>Telescope file_browser<CR>", { noremap = true })
         end,
     },
     {

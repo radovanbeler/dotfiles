@@ -14,8 +14,6 @@ return {
 
         local cmp = require("cmp")
 
-        require("luasnip.loaders.from_vscode").lazy_load()
-
         cmp.setup({
             mapping = cmp.mapping.preset.insert({
                 ["<A-j>"] = cmp.mapping.confirm({
