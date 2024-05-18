@@ -13,6 +13,10 @@ vim.keymap.set("n", "<leader>gp", ":G push<CR>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Keep cursor centered during half-screen scrolling
+vim.keymap.set("n", "<c-u>", "<c-u>zz")
+vim.keymap.set("n", "<c-d>", "<c-d>zz")
+
 -- Keep cursors at the begging of the line
 vim.keymap.set("n", "J", "mzJ`z")
 
