@@ -20,7 +20,14 @@ return {
 
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-        local servers = { "pyright", "clangd" }
+        lspconfig.clangd.setup({
+            capabilities = capabilities,
+            on_attach = function(client, bufnr)
+                vim.keymap.set("n", "<leader>s", "<CMD>ClangdSwitchSourceHeader<CR>", opts)
+            end,
+        })
+
+        local servers = { "pyright" }
         for _, lsp in ipairs(servers) do
             lspconfig[lsp].setup({
                 capabilities = capabilities,
