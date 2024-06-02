@@ -8,6 +8,7 @@ export CDPATH=".:~/files/:~/files/vysoka_skola/s6"
 alias la='ls -la --color=auto'
 alias xo='xdg-open'
 alias dbxe='distrobox enter "$( distrobox list | tail -n +2 | cut -d " " -f3 | fzf-tmux )"'
+alias cpcf='cp ~/.clang-format .'
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
