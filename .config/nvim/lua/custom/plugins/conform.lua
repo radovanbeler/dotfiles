@@ -7,6 +7,7 @@ return {
                 c = { "clang_format" },
                 cpp = { "clang_format" },
                 lua = { "stylua" },
+                yaml = { "yamlfmt" },
             },
             formatters = {
                 clang_format = {
