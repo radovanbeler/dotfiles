@@ -13,6 +13,7 @@
 !/.config/systemd/user/backup.timer
 !/.config/systemd/user/nas_backup.service
 !/.config/systemd/user/nas_backup.timer
+!/.config/zathura
 
 !/.bashrc.d
 /.bashrc.d/*
