@@ -25,13 +25,7 @@ return {
             on_attach = function(client, bufnr)
                 vim.keymap.set("n", "<leader>s", "<CMD>ClangdSwitchSourceHeader<CR>", opts)
             end,
-            -- cmd = {
-            --     "/home/radovan/.local/share/nvim/mason/bin/clangd",
-            --     "--clang-tidy",
-            -- },
         })
-
-        print(table.concat(lspconfig.clangd.cmd))
 
         local servers = { "pyright" }
         for _, lsp in ipairs(servers) do

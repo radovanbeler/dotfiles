@@ -1,7 +1,7 @@
 return {
     "rose-pine/neovim",
+    priority = 100,
     name = "rose-pine",
-    priority = 1000,
     config = function()
         require("rose-pine").setup({
             styles = {
