@@ -8,7 +8,10 @@ return {
         local luasnip = require("luasnip")
 
         require("luasnip.loaders.from_vscode").lazy_load({ exclude = { "cpp" } })
-        require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/custom/snippets" })
+        require("luasnip.loaders.from_lua").lazy_load({
+            paths = "~/.config/nvim/lua/custom/snippets",
+            fs_event_providers = { autocmd = true, libuv = true },
+        })
 
         luasnip.setup({
             update_events = { "TextChanged", "TextChangedI" },
