@@ -9,6 +9,10 @@ alias la='ls -la --color=auto'
 alias xo='xdg-open'
 alias dbxe='distrobox enter "$( distrobox list | tail -n +2 | cut -d " " -f3 | fzf-tmux )"'
 alias cpcf='cp ~/.clang-format .'
+alias cld='wl-paste >'
+alias cldi='wl-paste > input'
+alias lnd='curl "$( wl-paste )" -O'
+alias lndo='curl "$( wl-paste )" -o'
 
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"

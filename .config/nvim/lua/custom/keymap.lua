@@ -4,6 +4,9 @@ vim.g.mapleader = " "
 -- Open Netrw
 vim.keymap.set("n", "<Leader>pf", vim.cmd.Ex)
 
+-- Tabs
+vim.keymap.set("n", "<C-i>", "<CMD>tabnext<CR>")
+
 -- Paste over text in visual mode without losing content in register
 vim.keymap.set("x", "<leader>p", '"_dP')
 vim.keymap.set("n", "<leader>gs", ":G<CR>")
@@ -28,5 +31,7 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Make working with splits easier
 vim.keymap.set("n", "<leader>w", "<C-w>")
 
--- Execute python file opened in current buffer
+-- Execute code
+vim.keymap.set("n", "<leader>m", ":make<CR>")
 vim.keymap.set("n", "<leader>ep", ":!python %<CR>")
+vim.keymap.set("n", "<leader>af", ":!./test<CR>")
