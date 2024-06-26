@@ -19,3 +19,6 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.wrap = false
+
+vim.opt.laststatus = 3
+vim.opt.statusline = "%t %m%r %y%=[%l,%v] %p%%"
