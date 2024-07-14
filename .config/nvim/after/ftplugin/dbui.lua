@@ -4,6 +4,20 @@ local get_root = function(bufnr)
     return tree[1]:root()
 end
 
+local contains = function(table, value)
+    if not table then
+        return false
+    end
+
+    for _, v in pairs(table) do
+        if value == v then
+            return true
+        end
+    end
+
+    return false
+end
+
 local statement_under_cursor = function(bufnr)
     local root = get_root(bufnr)
     local node = vim.treesitter.get_node()
@@ -18,8 +32,8 @@ local statement_under_cursor = function(bufnr)
         node = node:parent()
     end
 
-    -- Make sure statement is found
-    if node:type() ~= "statement" then
+    -- Make sure statement or transaction is found
+    if not contains({ "statement", "transaction" }, node:type()) then
         return nil, nil
     end
 
@@ -57,9 +71,9 @@ local execute = function()
 
     local visual = vim.api.nvim_replace_termcodes("v", true, false, true)
 
-    vim.fn.setcursorcharpos(start.row + 1, start.column + 1)
+    vim.api.nvim_win_set_cursor(0, { start.row + 1, start.column })
     vim.cmd("normal! " .. visual)
-    vim.fn.setcursorcharpos(end_.row + 1, end_.column + 1)
+    vim.api.nvim_win_set_cursor(0, { end_.row + 1, end_.column })
     vim.fn.feedkeys(string.format("%c%c%c(DBUI_ExecuteQuery)", 0x80, 253, 83))
 end
 
