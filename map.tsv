@@ -1,0 +1,8 @@
+.tmux.conf			.tmux.conf
+.aspell.sk.prepl	.aspell.sk.prepl
+.aspell.sk.pws		.aspell.sk.pws
+.clang-format		.clang-format
+.distrobox.ini		.distrobox.ini
+scripts				scripts
+nvim				.config/nvim
+zathura				.config/zathura

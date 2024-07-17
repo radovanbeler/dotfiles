@@ -1,6 +1,0 @@
-[Unit]
-Description=Backup personal files to NAS
-
-[Service]
-ExecStart=/usr/bin/rclone sync /home/radovan/files clnkova_nas:/subory/Radovan/backup/files --fast-list
-Type=oneshot
