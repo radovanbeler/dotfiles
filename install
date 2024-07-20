@@ -37,3 +37,5 @@ while read -r config dest; do
     _info "$( printf 'Creating symlink "%s" to "%s"' "$dest" "$config" )"
     ln -s "$target" "$link"
 done < map.tsv
+
+_info 'Install successful'

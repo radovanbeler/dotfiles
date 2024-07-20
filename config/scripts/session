@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dirs=( "$HOME" "$HOME/projects/" "$HOME/.config/" )
+dirs=( "$HOME" "$HOME/projects/" "$HOME/.config/" "$HOME/dotfiles/config" )
 for dir in "${dirs[@]}"; do
     if [[ ! -d "$dir" ]]; then
         echo "$dir doesn't exist"
