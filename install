@@ -11,10 +11,23 @@ _error() {
     printf "%s[error]%s %s\n" "$( tput setaf 1 )" "$( tput sgr0 )" "$1"
 }
 
-if [[ ! -f 'map.tsv' ]]; then
-    _error 'File map.tsv not found'
+_die() {
+    _error "$@"
     exit 1
+}
+
+if [[ ! -f 'map.tsv' ]]; then
+    _die 'File map.tsv not found'
 fi
+
+custom="$HOME/.config/custom"
+if [[ ! -e "$custom" ]]; then
+    _info "$( printf 'Creating "%s" directory' "$custom" )"
+    mkdir -p "$custom" 
+elif [[ -e "$custom" && ! -d "$custom" ]]; then
+    _die '"~/.config/custom" exists but is not a directory'
+fi
+unset custom
 
 while read -r config dest; do
     target="$PWD/config/$config" 
@@ -37,5 +50,6 @@ while read -r config dest; do
     _info "$( printf 'Creating symlink "%s" to "%s"' "$dest" "$config" )"
     ln -s "$target" "$link"
 done < map.tsv
+unset config dest target link
 
 _info 'Install successful'
