@@ -1,9 +1,10 @@
 .tmux.conf			.tmux.conf
 .aspell.sk.prepl	.aspell.sk.prepl
 .aspell.sk.pws		.aspell.sk.pws
-.clang-format		.config/custom/.clang-format
 .distrobox.ini		.distrobox.ini
-customrc			.bashrc.d/customrc
 scripts				scripts
+customrc			.bashrc.d/customrc
 nvim				.config/nvim
 zathura				.config/zathura
+.clang-format-c		.config/custom/.clang-format-c
+.clang-format-cpp	.config/custom/.clang-format-cpp

@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+_info() {
+    printf "%s[info]%s  %s\n" "$( tput setaf 4 )" "$( tput sgr0 )" "$1"
+}
+
+_error() {
+    printf "%s[error]%s %s\n" "$( tput setaf 1 )" "$( tput sgr0 )" "$1"
+}
+
+_die() {
+    _error "$@"
+    exit 1
+}
+
+if (( $# != 1 )); then
+    _die 'Usage: deploy [config]'    
+fi
+
+custom="$HOME/.config/custom"
+
+if [[ ! -d "$custom" ]]; then
+    _die '"~/.config/custom" not found'
+fi
+
+deploy_c() {
+    _info 'Deploying C clang-format config'
+
+    config='.clang-format-c'
+
+    if [[ ! -f "$custom/$config" ]]; then
+        _die "\"$config\" not found"
+    fi
+
+    cp -i "$HOME/.config/custom/$config" "$PWD/.clang-format"
+}
+
+deploy_cpp() {
+    _info 'Deploying C++ clang-format config'
+
+    config='.clang-format-cpp'
+
+    if [[ ! -f "$custom/$config" ]]; then
+        _die "\"$config\" not found"
+    fi
+
+    cp -i "$HOME/.config/custom/$config" "$PWD/.clang-format"
+}
+
+case "$1" in
+    'c')
+        deploy_c
+        ;;
+    'cpp')
+        deploy_cpp
+        ;;
+    *)
+        _die 'Invalid config'    
+        ;;
+esac
