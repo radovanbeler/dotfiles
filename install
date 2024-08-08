@@ -16,18 +16,31 @@ _die() {
     exit 1
 }
 
+_ensure_dir() {
+    dir="$1"
+
+    if [[ -z "$dir" ]]; then
+        _die 'Variable "dir" is empty string'
+    fi
+
+    if [[ ! -e "$dir" ]]; then
+        _info "$( printf 'Creating "%s" directory' "$dir" )"
+        mkdir -p "$dir" 
+    elif [[ -e "$dir" && ! -d "$dir" ]]; then
+        _die "$( printf '"%s" exists but is not a directory' "$dir" )"
+    else
+        _info "$( printf '"%s" already exists' "$dir" )"
+    fi
+
+    unset dir
+}
+
 if [[ ! -f 'map.tsv' ]]; then
     _die 'File map.tsv not found'
 fi
 
-custom="$HOME/.config/custom"
-if [[ ! -e "$custom" ]]; then
-    _info "$( printf 'Creating "%s" directory' "$custom" )"
-    mkdir -p "$custom" 
-elif [[ -e "$custom" && ! -d "$custom" ]]; then
-    _die '"~/.config/custom" exists but is not a directory'
-fi
-unset custom
+_ensure_dir "$HOME/.config/custom"
+_ensure_dir "$HOME/.local/bin"
 
 while read -r config dest; do
     target="$PWD/config/$config" 

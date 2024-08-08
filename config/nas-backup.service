@@ -1,0 +1,10 @@
+[Unit]
+Description=Backup to NAS service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/bin/sh -c 'backup'
+
+[Install]
+WantedBy=default.target

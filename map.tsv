@@ -2,9 +2,14 @@
 .aspell.sk.prepl	.aspell.sk.prepl
 .aspell.sk.pws		.aspell.sk.pws
 .distrobox.ini		.distrobox.ini
-scripts				scripts
 customrc			.bashrc.d/customrc
+session				.local/bin/session
+deploy				.local/bin/deploy
+backup				.local/bin/backup
+git-prompt.sh		.local/bin/git-prompt.sh
 nvim				.config/nvim
 zathura				.config/zathura
 .clang-format-c		.config/custom/.clang-format-c
 .clang-format-cpp	.config/custom/.clang-format-cpp
+nas-backup.service	.config/systemd/user/nas-backup.service
+nas-backup.timer	.config/systemd/user/nas-backup.timer

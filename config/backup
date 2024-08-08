@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+IFS=$'\n\t'
+
+_info() {
+    printf "%s[info]%s  %s\n" "$( tput setaf 4 )" "$( tput sgr0 )" "$1" 1>&2
+}
+
+_error() {
+    printf "%s[error]%s %s\n" "$( tput setaf 1 )" "$( tput sgr0 )" "$1" 1>&2
+}
+
+_die() {
+    _error "$@"
+    exit 1
+}
+
+potential=(
+	"$HOME/files"
+	"$HOME/projects"
+)
+declare -a to_backup
+
+for dir in "${potential[@]}"; do
+	if [[ -d "$dir" ]]; then
+		to_backup+=("$dir")
+	else
+		_error "$( printf 'Directory "%s" not found' "$dir" )"
+	fi
+done
+unset dir potential
+
+_info 'Running rsync'
+rsync -a --delete "${to_backup[@]}" 'radovan@nas:/volume1/subory/Radovan/backup'
+_info 'Finished'
