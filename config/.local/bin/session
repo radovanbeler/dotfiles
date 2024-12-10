@@ -19,10 +19,14 @@ fi
 name="$( basename "$path" )"
 
 if ! tmux has-session -t "$name" 2>/dev/null; then
-    tmux new -s "$name" -n 'editor' -c "$path" -d
-    tmux neww -t "$name" -n 'shell' -c "$path" -d
-    tmux neww -t "$name" -n 'debug' -c "$path" -d
-    tmux send -t "$name" 'nvim' 'C-m'
+    if [[ "$1" == '-i' ]]; then
+        tmux new -s "$name" -n 'shell' -c "$path" -d
+    else
+        tmux new -s "$name" -n 'editor' -c "$path" -d
+        tmux neww -t "$name" -n 'shell' -c "$path" -d
+        tmux neww -t "$name" -n 'debug' -c "$path" -d
+        tmux send -t "$name" 'nvim' 'C-m'
+    fi
 fi
 
 if [[ -z "$TMUX" ]]; then
