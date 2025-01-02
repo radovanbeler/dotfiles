@@ -2,7 +2,7 @@
 
 dirs=( 
     "$HOME" 
-    "$HOME/projects/"
+    "$HOME/Projects/"
     "$HOME/.config/"
 )
 for dir in "${dirs[@]}"; do
