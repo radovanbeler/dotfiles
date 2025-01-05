@@ -4,9 +4,9 @@ alias ls='ls     --color=auto'
 alias la='ls -l  --color=auto'
 alias ll='ls -la --color=auto'
 
-set  -o vi
-bind -m vi-command 'Control-l: clear-screen'
-bind -m vi-insert  'Control-l: clear-screen'
+# set  -o vi
+# bind -m vi-command 'Control-l: clear-screen'
+# bind -m vi-insert  'Control-l: clear-screen'
 
 export EDITOR=nvim
 export PATH="$HOME/.local/bin:$PATH"
