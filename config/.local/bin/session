@@ -12,7 +12,7 @@ for dir in "${dirs[@]}"; do
     fi
 done
 
-path="$( find -L "${dirs[@]}" -maxdepth 1 -type d -not -name ".*" | fzf-tmux )"
+path="$( find -L "${dirs[@]}" -maxdepth 2 -type d -not -name ".*" | fzf-tmux )"
 if [[ -z "$path" ]]; then
     exit 0
 fi

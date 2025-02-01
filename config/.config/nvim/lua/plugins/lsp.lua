@@ -27,7 +27,7 @@ return {
 			end,
 		})
 
-		local servers = { "pyright" }
+		local servers = { "pyright", "cmake" }
 		for _, lsp in ipairs(servers) do
 			lspconfig[lsp].setup({
 				capabilities = capabilities,
