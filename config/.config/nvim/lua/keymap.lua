@@ -35,3 +35,6 @@ vim.keymap.set("n", "<leader>w", "<C-w>")
 vim.keymap.set("n", "<leader>m", ":make<CR>")
 vim.keymap.set("n", "<leader>ep", ":!python %<CR>")
 vim.keymap.set("n", "<leader>af", ":!./test<CR>")
+
+-- Custom split
+vim.keymap.set("n", "<leader>z", "<CMD>vsplit | vertical resize 50<CR>")
