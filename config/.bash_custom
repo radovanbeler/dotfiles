@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# This goes to .bashrc
+# if [ -f ~/.bash_custom ]; then
+#     . ~/.bash_custom
+# fi
+
+PS1='\[\e[32m\]\w\[\e[0m\]\$ '
+
+if [[ "$OSTYPE" == "cygwin" ]]; then
+    export MSYS='winsymlinks:nativestrict'
+    alias nvim='XDG_CONFIG_HOME=~/.config nvim'
+fi

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+stow -vR 'config' -t "$HOME"
