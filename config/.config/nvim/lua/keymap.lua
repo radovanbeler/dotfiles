@@ -7,6 +7,9 @@ vim.keymap.set("n", "<Leader>pf", vim.cmd.Ex)
 -- Tabs
 vim.keymap.set("n", "<C-i>", "<CMD>tabnext<CR>")
 
+-- Save file
+vim.keymap.set("n", "<Leader>s", "<CMD>:w<CR>")
+
 -- Paste over text in visual mode without losing content in register
 vim.keymap.set("x", "<leader>p", '"_dP')
 vim.keymap.set("n", "<leader>gs", ":G<CR>")

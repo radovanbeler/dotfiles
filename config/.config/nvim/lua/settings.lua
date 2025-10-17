@@ -1,5 +1,3 @@
-vim.cmd("language en_US")
-
 vim.o.termguicolors = true
 
 vim.opt.swapfile = false

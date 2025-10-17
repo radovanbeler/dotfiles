@@ -1,6 +1,11 @@
 return {
 	"neovim/nvim-lspconfig",
 	config = function()
+		vim.diagnostic.config({
+			virtual_text = true,
+			signs = false,
+		})
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(args)
@@ -22,7 +27,7 @@ return {
 		vim.lsp.config("clangd", {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
-				vim.keymap.set("n", "<leader>s", "<CMD>ClangdSwitchSourceHeader<CR>", opts)
+				vim.keymap.set("n", "<leader>ds", "<CMD>ClangdSwitchSourceHeader<CR>", opts)
 			end,
 		})
 
