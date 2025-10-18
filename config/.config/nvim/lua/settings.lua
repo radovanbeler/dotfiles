@@ -23,6 +23,15 @@ vim.opt.wrap = false
 vim.opt.laststatus = 3
 vim.opt.statusline = "%t %m%r %y%=[%l,%v] %p%%"
 
--- Netrw
-vim.g.netrw_keepdir = 0
+-- Don't change working directory after opening a file
+vim.g.netrw_keepdir = 1
 vim.g.netrw_localcopydircmd = "cp -r"
+
+-- Enable line numbers in netrw
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "netrw",
+	callback = function()
+		vim.opt_local.number = true
+		vim.opt_local.relativenumber = true
+	end,
+})

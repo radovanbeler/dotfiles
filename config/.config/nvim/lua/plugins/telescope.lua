@@ -21,6 +21,25 @@ return {
 
 			vim.keymap.set("n", "<leader>f/", builtin.live_grep, {})
 			vim.keymap.set("n", "<leader>fs", builtin.lsp_dynamic_workspace_symbols, {})
+
+			local conf = require("telescope.config").values
+			local pickers = require("telescope.pickers")
+			local finders = require("telescope.finders")
+
+			vim.keymap.set("n", "<leader>fd", function()
+				local finder_command = { "fdfind", "--type", "d", "--color", "never" }
+
+				opts = opts or {}
+				pickers
+					.new(opts, {
+						prompt_title = "Find Directories",
+						finder = finders.new_oneshot_job(finder_command, {}),
+						sorter = conf.generic_sorter(opts),
+						layout_strategy = "center",
+						layout_config = { width = 0.5, height = 0.75, prompt_position = "bottom" },
+					})
+					:find()
+			end, {})
 		end,
 	},
 	{

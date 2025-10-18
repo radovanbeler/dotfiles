@@ -4,8 +4,37 @@ vim.g.mapleader = " "
 -- Open Netrw
 vim.keymap.set("n", "<Leader>pf", vim.cmd.Ex)
 
--- Tabs
-vim.keymap.set("n", "<C-i>", "<CMD>tabnext<CR>")
+-- Show marked files in Netrw
+vim.keymap.set("n", "ml", function()
+	local buf = vim.api.nvim_create_buf(false, true)
+
+	local marked_files = vim.fn["netrw#Expose"]("netrwmarkfilelist")
+	if type(marked_files) == "string" then
+		marked_files = { marked_files[1] }
+	end
+
+	table.insert(marked_files, string.format("Press 'q' to continue"))
+
+	vim.api.nvim_buf_set_lines(buf, 0, -1, false, marked_files)
+
+	local width = vim.o.columns
+	local height = #marked_files
+	vim.api.nvim_open_win(buf, true, {
+		relative = "editor",
+		width = width,
+		height = height,
+		row = vim.o.lines - height,
+		col = vim.o.columns - width,
+		style = "minimal",
+		border = "none",
+	})
+
+	vim.api.nvim_buf_set_option(buf, "buftype", "nofile")
+	vim.api.nvim_buf_set_option(buf, "modifiable", false)
+	vim.api.nvim_buf_set_option(buf, "readonly", true)
+
+	vim.api.nvim_buf_set_keymap(buf, "n", "q", ":q!<CR>", { noremap = true, silent = true })
+end)
 
 -- Save file
 vim.keymap.set("n", "<Leader>s", "<CMD>:w<CR>")
@@ -33,14 +62,6 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- Make working with splits easier
 vim.keymap.set("n", "<leader>w", "<C-w>")
-
--- Execute code
-vim.keymap.set("n", "<leader>m", ":make<CR>")
-vim.keymap.set("n", "<leader>ep", ":!python %<CR>")
-vim.keymap.set("n", "<leader>af", ":!./test<CR>")
-
--- Custom split
-vim.keymap.set("n", "<leader>z", "<CMD>vsplit | vertical resize 50<CR>")
 
 -- Allows exiting a read-only buffer by pressing q. This remaps macros that are
 -- rarely (never) used in a read-only buffer. Setting the buffer option to true
