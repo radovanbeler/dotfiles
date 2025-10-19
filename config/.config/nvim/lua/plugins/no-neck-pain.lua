@@ -7,6 +7,11 @@ return {
 			mappings = {
 				enabled = true,
 			},
+			buffers = {
+				right = {
+					enabled = false,
+				},
+			},
 		})
 	end,
 }
