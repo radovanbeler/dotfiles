@@ -5,6 +5,17 @@
 
 PS1='\[\e[32m\]\w\[\e[0m\]\$ '
 
+export EDITOR='nvim'
+
+alias ll='ls -lh --color=auto'
+alias la='ls -lah --color=auto'
+
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+
 up() {
     [[ $1 =~ ^\.+$ ]] && cd "${1//./../}" || echo 'invalid format'
 }
