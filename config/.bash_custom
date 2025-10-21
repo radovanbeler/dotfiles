@@ -3,6 +3,10 @@
 #     . ~/.bash_custom
 # fi
 
+# Disable XON/XOFF control flow so readline 
+# forward and backward search works correctly
+stty -ixon
+
 PS1='\[\e[32m\]\w\[\e[0m\]\$ '
 
 export EDITOR='nvim'
