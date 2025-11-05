@@ -22,3 +22,11 @@ vim.opt.wrap = false
 
 vim.opt.laststatus = 3
 vim.opt.statusline = "%t %m%r %y%=[%l,%v] %p%%"
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldcolumn = "0"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldnestmax = 4
+vim.opt.foldtext = ""
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
