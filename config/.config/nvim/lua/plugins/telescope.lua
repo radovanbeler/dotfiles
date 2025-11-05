@@ -21,6 +21,8 @@ return {
 
 			vim.keymap.set("n", "<leader>f/", builtin.live_grep, {})
 			vim.keymap.set("n", "<leader>fs", builtin.lsp_dynamic_workspace_symbols, {})
+			vim.keymap.set("n", "<leader>fls", builtin.lsp_document_symbols, {})
+			vim.keymap.set("n", "<leader>fr", builtin.lsp_references, {})
 
 			local conf = require("telescope.config").values
 			local pickers = require("telescope.pickers")
