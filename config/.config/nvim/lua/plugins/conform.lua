@@ -8,6 +8,7 @@ return {
 				cpp = { "clang_format" },
 				lua = { "stylua" },
 				json = { "jq" },
+				haskell = { "ormolu" },
 			},
 			formatters = {
 				clang_format = {
