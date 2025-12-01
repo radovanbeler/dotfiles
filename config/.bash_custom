@@ -14,11 +14,7 @@ export EDITOR='nvim'
 alias ll='ls -lh --color=auto'
 alias la='ls -lah --color=auto'
 
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gl='git log --oneline --graph --decorate'
+alias lg='lazygit'
 
 up() {
     [[ $1 =~ ^\.+$ ]] && cd "${1//./../}" || echo 'invalid format'
