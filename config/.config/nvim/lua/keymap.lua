@@ -31,6 +31,9 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 -- Make working with splits easier
 vim.keymap.set("n", "<leader>w", "<C-w>")
 
+-- Jump to the end of the line
+vim.keymap.set("i", "<c-e>", "<End>")
+
 -- Allows exiting a read-only buffer by pressing q. This remaps macros that are
 -- rarely (never) used in a read-only buffer. Setting the buffer option to true
 -- limits the mapping to the current buffer, so it is removed automatically
