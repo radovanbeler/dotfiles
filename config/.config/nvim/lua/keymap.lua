@@ -9,8 +9,7 @@ vim.keymap.set("n", "<Leader>s", "<CMD>:w<CR>")
 
 -- Paste over text in visual mode without losing content in register
 vim.keymap.set("x", "<leader>p", '"_dP')
-vim.keymap.set("n", "<leader>gs", ":G<CR>")
-vim.keymap.set("n", "<leader>gp", ":G push<CR>")
+vim.keymap.set("x", "<leader>P", '"+p')
 
 -- Move lines selected in visual-line mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
