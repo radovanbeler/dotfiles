@@ -8,6 +8,7 @@ vim.opt.colorcolumn = "100"
 vim.opt.updatetime = 50
 vim.opt.mouse = ""
 vim.opt.showmode = false
+vim.opt.splitright = true
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

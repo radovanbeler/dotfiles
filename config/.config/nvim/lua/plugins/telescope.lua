@@ -1,48 +1,48 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
+		tag = "v0.2.0",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			require("telescope").setup()
-			require("telescope").load_extension("fzf")
-
+			local telescope = require("telescope")
 			local builtin = require("telescope.builtin")
+
+			telescope.setup({
+				defaults = {
+					layout_strategy = "horizontal",
+					layout_config = {
+						width = 0.95,
+						height = 0.95,
+						preview_width = 0.5,
+					},
+				},
+			})
+
+			telescope.load_extension("fzf")
 
 			vim.keymap.set("n", "<leader>ff", function()
 				builtin.find_files({ hidden = false, no_ignore = false })
-			end, {})
+			end)
 
 			vim.keymap.set("n", "<leader>fa", function()
 				builtin.find_files({ hidden = true, no_ignore = true })
-			end, {})
+			end)
 
-			vim.keymap.set("n", "<leader>f/", builtin.live_grep, {})
-			vim.keymap.set("n", "<leader>fs", builtin.lsp_dynamic_workspace_symbols, {})
-			vim.keymap.set("n", "<leader>fls", builtin.lsp_document_symbols, {})
-			vim.keymap.set("n", "<leader>fr", builtin.lsp_references, {})
+			vim.keymap.set("n", "<leader>f/", builtin.live_grep)
+			vim.keymap.set("n", "<leader>f*", builtin.grep_string)
 
-			local conf = require("telescope.config").values
-			local pickers = require("telescope.pickers")
-			local finders = require("telescope.finders")
+			vim.keymap.set("n", "<leader>fr", builtin.lsp_references)
+			vim.keymap.set("n", "<leader>fs", builtin.lsp_workspace_symbols)
 
-			vim.keymap.set("n", "<leader>fd", function()
-				local finder_command = { "fdfind", "--type", "d", "--color", "never" }
+			vim.keymap.set("n", "<leader>ft", builtin.treesitter)
 
-				opts = opts or {}
-				pickers
-					.new(opts, {
-						prompt_title = "Find Directories",
-						finder = finders.new_oneshot_job(finder_command, {}),
-						sorter = conf.generic_sorter(opts),
-						layout_strategy = "center",
-						layout_config = { width = 0.5, height = 0.75, prompt_position = "bottom" },
-					})
-					:find()
-			end, {})
+			vim.keymap.set("n", "<leader>fm", function()
+				builtin.man_pages({ sections = { "ALL" } })
+			end)
+			vim.keymap.set("n", "<leader>fh", builtin.help_tags)
 		end,
 	},
 	{
