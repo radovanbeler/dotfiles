@@ -27,11 +27,11 @@ vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 
--- Make working with splits easier
-vim.keymap.set("n", "<leader>w", "<C-w>")
-
 -- Jump to the end of the line
 vim.keymap.set("i", "<c-e>", "<End>")
+
+-- Remove color escape codes
+vim.keymap.set("n", "<leader>tc", ":%s/\\e\\[[0-9;]*m//g<CR>")
 
 -- Toggle semicolon at the end of line
 vim.keymap.set("n", "<leader>;", function()
