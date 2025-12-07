@@ -33,6 +33,20 @@ vim.keymap.set("n", "<leader>w", "<C-w>")
 -- Jump to the end of the line
 vim.keymap.set("i", "<c-e>", "<End>")
 
+-- Toggle semicolon at the end of line
+vim.keymap.set("n", "<leader>;", function()
+	local line = vim.api.nvim_get_current_line()
+	local content, whitespace = line:match("^(.-)(%s*)$")
+
+	if content:match(";$") then
+		content = content:sub(1, -2)
+	else
+		content = content .. ";"
+	end
+
+	vim.api.nvim_set_current_line(content .. whitespace)
+end)
+
 vim.api.nvim_create_user_command("ClearReg", function()
 	vim.cmd([[
         let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
