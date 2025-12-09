@@ -1,11 +1,38 @@
 -- Set leader key
 vim.g.mapleader = " "
 
--- Open Netrw
-vim.keymap.set("n", "<Leader>pf", vim.cmd.Ex)
+--------------------------------------------------------------------------------
+-- Netrw
+--------------------------------------------------------------------------------
+vim.keymap.set("n", "<leader>nn", vim.cmd.Explore)
+vim.keymap.set("n", "<leader>nr", vim.cmd.Rexplore)
+
+vim.keymap.set("n", "<leader>ns", function()
+	vim.ui.input({ prompt = "Enter SSH host: " }, function(input)
+		if not input then
+			return
+		end
+
+		local host, path = input:match("^([^/]+)(.*)$")
+
+		if not host or host:match("^%s*$") then
+			return
+		end
+
+		if not path then
+			path = "/"
+		elseif not path:match("/%s*$") then
+			path = path .. "/"
+		end
+
+		vim.cmd.Explore("scp://" .. host .. path)
+	end)
+end)
+
+--------------------------------------------------------------------------------
 
 -- Save file
-vim.keymap.set("n", "<Leader>s", "<CMD>:w<CR>")
+vim.keymap.set("n", "<leader>s", "<CMD>:w<CR>")
 
 -- Paste over text in visual mode without losing content in register
 vim.keymap.set("x", "<leader>p", '"_dP')
@@ -18,6 +45,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Keep cursor centered during half-screen scrolling
 vim.keymap.set("n", "<c-u>", "<c-u>zz")
 vim.keymap.set("n", "<c-d>", "<c-d>zz")
+
+-- Keep cursor centered when moving through paragraphs
+vim.keymap.set("n", "{", "{zz")
+vim.keymap.set("n", "}", "}zz")
 
 -- Keep cursors at the begging of the line
 vim.keymap.set("n", "J", "mzJ`z")
