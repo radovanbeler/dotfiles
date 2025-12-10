@@ -15,13 +15,17 @@ return {
 				winopts = {
 					height = 0.95,
 					width = 0.95,
+					on_create = function()
+						vim.keymap.set("t", "<C-j>", "<Enter>", { silent = true, buffer = true })
+					end,
 				},
 			})
 
 			vim.keymap.set("n", "<leader>ff", fzf.files)
 			vim.keymap.set("n", "<leader>f/", fzf.live_grep)
 			vim.keymap.set("n", "<leader>fa", function()
-				fzf.files({ fd_opts = "--color=never --type f --hidden --follow --no-ignore" })
+				local opts = "--color=never --type f --hidden --follow --no-ignore --exclude .git"
+				fzf.files({ fd_opts = opts })
 			end)
 			vim.keymap.set("n", "<leader>fr", fzf.lsp_references)
 			vim.keymap.set("n", "<leader>fs", fzf.lsp_workspace_symbols)
