@@ -30,6 +30,15 @@ vim.keymap.set("n", "<leader>ns", function()
 end)
 
 --------------------------------------------------------------------------------
+-- Tabs
+--------------------------------------------------------------------------------
+
+vim.keymap.set("n", "<leader>to", vim.cmd.tabnew)
+vim.keymap.set("n", "<leader>tc", vim.cmd.tabclose)
+vim.keymap.set("n", "<leader>tn", vim.cmd.tabnext)
+vim.keymap.set("n", "<leader>tp", vim.cmd.tabprevious)
+
+--------------------------------------------------------------------------------
 
 -- Save file
 vim.keymap.set("n", "<leader>s", "<CMD>:w<CR>")
