@@ -23,4 +23,11 @@ return {
 			end)
 		end,
 	},
+	{
+		"nvim-mini/mini.visits",
+		version = false,
+		config = function()
+			require("mini.visits").setup()
+		end,
+	},
 }

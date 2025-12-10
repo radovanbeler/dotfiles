@@ -19,6 +19,9 @@ return {
 						vim.keymap.set("t", "<C-j>", "<Enter>", { silent = true, buffer = true })
 					end,
 				},
+				fzf_opts = {
+					["--layout"] = "reverse",
+				},
 			})
 
 			vim.keymap.set("n", "<leader>ff", fzf.files)
