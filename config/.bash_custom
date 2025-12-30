@@ -3,7 +3,7 @@
 #     . ~/.bash_custom
 # fi
 
-# Disable XON/XOFF control flow so readline 
+# Disable XON/XOFF control flow so readline
 # forward and backward search works correctly
 stty -ixon
 
@@ -18,4 +18,8 @@ alias lg='lazygit'
 
 up() {
     [[ $1 =~ ^\.+$ ]] && cd "${1//./../}" || echo 'invalid format'
+}
+
+bak() {
+    [[ "$1" ]] && cp -r "$1" "$1.bak" || echo 'no file specified'
 }
