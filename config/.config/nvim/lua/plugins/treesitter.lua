@@ -3,10 +3,11 @@ return {
 	lazy = false,
 	build = ":TSUpdate",
 	config = function()
-		-- Start treesitter for every filetype
+		local ts = require("nvim-treesitter")
 		vim.api.nvim_create_autocmd("FileType", {
+			pattern = ts.get_installed(),
 			callback = function()
-				pcall(vim.treesitter.start)
+				vim.treesitter.start()
 			end,
 		})
 	end,
