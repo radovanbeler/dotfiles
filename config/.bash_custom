@@ -23,3 +23,27 @@ up() {
 bak() {
     [[ "$1" ]] && cp -r "$1" "$1.bak" || echo 'no file specified'
 }
+
+tohex() {
+    if [[ -z "$1" ]]; then
+        echo 'no number specified\n'
+        exit 1
+    fi
+    result="$(bc <<< "obase=16;${1}")"
+    echo "0x${result,,}"
+}
+
+todec() {
+    if [[ -z "$1" ]]; then
+        echo 'no number specified\n'
+        exit 1
+    fi
+
+    n="$1"
+
+    if [[ "$n" =~ ^0x([0-9A-Fa-f]+)$ ]]; then
+        n="${BASH_REMATCH[1]}"
+    fi
+
+    bc <<< "ibase=16;${n^^}"
+}
