@@ -10,6 +10,8 @@ stty -ixon
 PS1='\[\e[32m\]\w\[\e[0m\]\$ '
 
 export EDITOR='nvim'
+export MANWIDTH='80'
+export MANPAGER='nvim +Man!'
 
 alias ll='ls -lh --color=auto'
 alias la='ls -lah --color=auto'
